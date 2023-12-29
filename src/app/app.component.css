@@ -1,0 +1,14 @@
+.special-class {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .normal-class {
+    color: black;
+  }
+  
+
+  /* phrase-list.component.css */
+.green-text {
+  color: green;
+}
