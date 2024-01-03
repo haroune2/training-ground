@@ -1,0 +1,32 @@
+/* styles.css (ou styles.scss, selon votre configuration) */
+
+form {
+    max-width: 300px; /* Ajustez la largeur maximale selon vos besoins */
+    margin: 0 auto; /* Centrez le formulaire horizontalement */
+  }
+  
+  label {
+    display: block; /* Placez chaque étiquette sur une nouvelle ligne */
+    margin-bottom: 8px; /* Ajoutez un peu d'espace en bas de chaque étiquette */
+  }
+  
+  input {
+    width: 100%; /* Forcez l'élément input à prendre 100% de la largeur du conteneur */
+    padding: 8px; /* Ajoutez un peu de remplissage pour une apparence propre */
+    margin-bottom: 12px; /* Ajoutez un peu d'espace en bas de chaque champ de saisie */
+    box-sizing: border-box; /* Assurez-vous que le remplissage ne change pas la largeur totale de l'élément */
+  }
+  
+  button {
+    background-color: #4caf50; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte du bouton */
+    padding: 10px 15px; /* Remplissage du bouton */
+    border: none; /* Supprimez la bordure du bouton */
+    border-radius: 4px; /* Ajoutez un peu de bordure arrondie */
+    cursor: pointer; /* Curseur de souris pointeur pour indiquer que le bouton est cliquable */
+  }
+  
+  button:hover {
+    background-color: #45a049; /* Couleur de fond du bouton au survol */
+  }
+  
