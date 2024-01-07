@@ -1,0 +1,30 @@
+home
+
+<h1>Angular Application using TypeScript</h1>
+
+<p>This application consists of several components:</p>
+
+<h2>Home Component:</h2>
+<p>Displays a list of cards using *ngFor loop, including a child component app-tcgplayer.</p>
+
+<h2>Tcgplayer Component:</h2>
+<p>Displays specific information related to Tcgplayer. Uses two child components app-prices to show Holofoil and Reverse Holofoil details.</p>
+
+<h2>Prices Component:</h2>
+<p>Displays prices for a specific category (Holofoil or Reverse Holofoil). Uses a list style to show different prices (Low, Mid, High, Market, Direct Low if present).</p>
+
+<p>Each component is connected to services or data, and the overall project utilizes Angular to create a reactive web application. The components are structured to make the application modular and reusable, following best practices in Angular development.</p>
+<h1>Cards : </h1>
+
+<div class="Cards" *ngFor="let card of Cards">
+    <fieldset>
+        <p> id :{{ card.id }} </p>
+        <p> flavorText :{{ card.flavorText }} </p>
+        <p> artist :{{ card.artist }} </p>
+
+        <img [src]="card.images.small">
+
+        <app-tcgplayer [tcgplayer]="card.tcgplayer"></app-tcgplayer>
+
+    </fieldset>
+</div>

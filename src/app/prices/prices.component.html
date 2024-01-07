@@ -1,0 +1,10 @@
+<p>prices works!</p>
+<div>
+    <ul>
+      <li>Low: {{ holofoil.low }}</li>
+      <li>Mid: {{ holofoil.mid }}</li>
+      <li>High: {{ holofoil.high }}</li>
+      <li>Market: {{ holofoil.market }}</li>
+      <li *ngIf="holofoil.directLow !== null">Direct Low: {{ holofoil.directLow }}</li>
+    </ul>
+  </div>

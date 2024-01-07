@@ -1,0 +1,29 @@
+/* Styles pour la partie Tcgplayer Information */
+div {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  h3 {
+    color: #333;
+  }
+  
+  p {
+    margin: 5px 0;
+  }
+  
+  h4 {
+    margin-top: 15px;
+    color: #555;
+  }
+  
+  /* Ajoutez des styles supplémentaires si nécessaire pour app-prices */
+  app-prices {
+    margin-top: 10px;
+  }
+  
+  /* Ajoutez d'autres styles personnalisés au besoin */
+  

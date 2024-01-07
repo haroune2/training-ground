@@ -1,0 +1,20 @@
+/* Styles pour la partie Prices */
+div {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 5px 0;
+  }
+  
+  /* Ajoutez d'autres styles personnalisés au besoin */
+  

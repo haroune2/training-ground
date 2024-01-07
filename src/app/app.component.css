@@ -1,14 +1,29 @@
-.special-class {
-    color: red;
-    font-weight: bold;
-  }
-  
-  .normal-class {
-    color: black;
-  }
-  
+/* Style pour la section Home */
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
 
-  /* phrase-list.component.css */
-.green-text {
-  color: green;
+.Cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+fieldset {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+}
+
+p {
+  margin: 5px 0;
+}
+
+img {
+  width: 100%;
+  border-radius: 4px;
 }

@@ -1,0 +1,11 @@
+<p>tcgplayer works!</p>
+
+<div>
+    <h3>Tcgplayer Information</h3>
+    <p>URL: {{ tcgplayer.url }}</p>
+    <p>Updated At: {{ tcgplayer.updatedAt }}</p>
+    <h4>Holofoil Information</h4>
+    <app-prices [holofoil]="tcgplayer.prices.holofoil"></app-prices>
+    <h4>Reverse Holofoil Information</h4>
+    <app-prices [holofoil]="tcgplayer.prices.reverseHolofoil"></app-prices>
+  </div>
