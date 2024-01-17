@@ -4,11 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { TcgplayerComponent } from './tcgplayer/tcgplayer.component';
 import { PricesComponent } from './prices/prices.component';
+import { ContactComponent } from './contact/contact.component';
+import { RouterModule } from '@angular/router';
+import { Routes } from '@angular/router'; 
+import { AppRoutingModule, routes } from './app-routing.module';
  
 
 @NgModule({
-  imports: [BrowserModule,HttpClientModule],
-  declarations: [AppComponent, TcgplayerComponent, PricesComponent],
+  imports: [BrowserModule,HttpClientModule,AppRoutingModule],
+  declarations: [AppComponent, TcgplayerComponent, PricesComponent, ContactComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,15 @@
 home
+<ul>
+ 
+    <li>
+      <a [routerLink]="['/contact']">CONTACT</a>
+      <a routerLink="/contact" >Page 1</a>
 
+    </li>
+  </ul>
+  
+  <router-outlet></router-outlet>
+  
 
 <div class="Cards" *ngFor="let card of Cards">
     <fieldset>
@@ -13,3 +23,6 @@ home
 
     </fieldset>
 </div>
+
+<!-- test -->
+
