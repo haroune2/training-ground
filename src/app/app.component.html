@@ -1,15 +1,101 @@
-home
+<div class="container">
+  <h1>To-Do List</h1>
 
+  <!-- Barre de recherche et filtres -->
+  <div class="search-container">
+    <mat-form-field appearance="fill" class="search-field">
+      <mat-label>Rechercher par nom</mat-label>
+      <input matInput [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()" placeholder="Entrez le nom de la tâche">
+    </mat-form-field>
+  </div>
 
-<div class="Cards" *ngFor="let card of Cards">
-    <fieldset>
-        <p> id :{{ card.id }} </p>
-        <p> flavorText :{{ card.flavorText }} </p>
-        <p> artist :{{ card.artist }} </p>
+  <div class="filters">
+    <mat-form-field appearance="fill" class="filter-field">
+      <mat-label>Date de début</mat-label>
+      <input matInput [matDatepicker]="startDatePicker" placeholder="Choisissez une date de début" [(ngModel)]="startDateFilter" (ngModelChange)="onStartDateChange()">
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
 
-        <img [src]="card.images.small">
+    <mat-form-field appearance="fill" class="filter-field">
+      <mat-label>Date de fin</mat-label>
+      <input matInput [matDatepicker]="endDatePicker" placeholder="Choisissez une date de fin" [(ngModel)]="endDateFilter" (ngModelChange)="onEndDateChange()">
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
 
-        <app-tcgplayer [tcgplayer]="card.tcgplayer"></app-tcgplayer>
+    <mat-form-field appearance="fill" class="filter-field">
+      <mat-label>Priorité</mat-label>
+      <mat-select [(ngModel)]="newTodoPriority" name="priority" (ngModelChange)="filterTodos()">
+        <mat-option value="">Tous</mat-option>
+        <mat-option value="Low">Basse</mat-option>
+        <mat-option value="Medium">Moyenne</mat-option>
+        <mat-option value="High">Haute</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 
-    </fieldset>
+  <form (ngSubmit)="addTodo()" class="todo-form">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Titre de la tâche</mat-label>
+      <input matInput placeholder="Entrez le titre de la tâche" [(ngModel)]="newTodoTitle" name="title" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Date de début</mat-label>
+      <input matInput [matDatepicker]="picker1" placeholder="Choisissez la date de début" [(ngModel)]="newTodoStartDate" name="startDate" required>
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Date de fin</mat-label>
+      <input matInput [matDatepicker]="picker2" placeholder="Choisissez la date de fin" [(ngModel)]="newTodoEndDate" name="endDate" required>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Priorité</mat-label>
+      <mat-select [(ngModel)]="newTodoPriority" name="priority" required>
+        <mat-option value="Low">Basse</mat-option>
+        <mat-option value="Medium">Moyenne</mat-option>
+        <mat-option value="High">Haute</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Ajouter</button>
+  </form>
+
+  <div class="results-separator"></div>
+
+  <div class="todo-grid">
+    <div *ngFor="let todo of filteredTodos" [ngStyle]="{'background-color': todo.color}" class="todo-card">
+      <h2>{{ todo.title }}</h2>
+      <p>Date de début: {{ todo.startDate | date }}</p>
+      <p>Date de fin: {{ todo.endDate | date }}</p>
+      <p>Priorité: <span [ngClass]="{'priority-low': todo.priority === 'Low', 'priority-medium': todo.priority === 'Medium', 'priority-high': todo.priority === 'High'}">{{ todo.priority }}</span></p>
+      <mat-checkbox [(ngModel)]="todo.completed" (change)="toggleTodoCompletion(todo.id)">
+        <span [class.completed]="todo.completed">{{ todo.title }}</span>
+      </mat-checkbox>
+      <mat-select [(ngModel)]="todo.status" (selectionChange)="changeTodoStatus(todo.id, $event.value)">
+        <mat-option value="Not Started">Pas commencé</mat-option>
+        <mat-option value="In Progress">En cours</mat-option>
+        <mat-option value="Completed">Terminé</mat-option>
+      </mat-select>
+      <button mat-icon-button color="warn" (click)="deleteTodo(todo.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <div class="subtasks">
+        <h3>Subtasks</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let subtask of todo.subtasks">
+            <mat-checkbox [(ngModel)]="subtask.completed">
+              <span [class.completed]="subtask.completed">{{ subtask.title }}</span>
+            </mat-checkbox>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </div>
 </div>

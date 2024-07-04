@@ -1,29 +1,88 @@
-/* Style pour la section Home */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
 h1 {
   text-align: center;
-  font-size: 2em;
   margin-bottom: 20px;
 }
 
-.Cards {
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-field {
+  width: 100%;
+}
+
+.filters {
+  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  gap: 10px;
 }
 
-fieldset {
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 10px;
-  width: 300px;
-}
-
-p {
-  margin: 5px 0;
-}
-
-img {
+.filter-field {
   width: 100%;
-  border-radius: 4px;
+}
+
+.todo-form {
+  margin-bottom: 20px;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+.results-separator {
+  border-top: 2px solid #ccc;
+  margin: 20px 0;
+  padding-top: 10px;
+}
+
+.todo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.todo-card {
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 300px;
+  background: #fff;
+}
+
+.todo-card h2 {
+  margin-top: 0;
+}
+
+.subtasks {
+  margin-top: 10px;
+}
+
+.priority-low {
+  color: green;
+}
+
+.priority-medium {
+  color: orange;
+}
+
+.priority-high {
+  color: red;
+}
+
+.completed {
+  text-decoration: line-through;
 }

@@ -1,0 +1,28 @@
+<div class="cal-container">
+    <div class="cal-header">
+      <button (click)="setView(CalendarView.Month)">Mois</button>
+      <button (click)="setView(CalendarView.Week)">Semaine</button>
+      <button (click)="setView(CalendarView.Day)">Jour</button>
+    </div>
+    <div [ngSwitch]="view">
+      <mwl-calendar-month-view
+        *ngSwitchCase="CalendarView.Month"
+        [viewDate]="viewDate"
+        [events]="events"
+        (eventClicked)="handleEvent('Clicked', $event.event)">
+      </mwl-calendar-month-view>
+      <mwl-calendar-week-view
+        *ngSwitchCase="CalendarView.Week"
+        [viewDate]="viewDate"
+        [events]="events"
+        (eventClicked)="handleEvent('Clicked', $event.event)">
+      </mwl-calendar-week-view>
+      <mwl-calendar-day-view
+        *ngSwitchCase="CalendarView.Day"
+        [viewDate]="viewDate"
+        [events]="events"
+        (eventClicked)="handleEvent('Clicked', $event.event)">
+      </mwl-calendar-day-view>
+    </div>
+  </div>
+  
